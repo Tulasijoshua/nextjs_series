@@ -2,11 +2,18 @@
 import { assets } from "@/utils/asset-utils";
 import Image from "next/image";
 import { type Framework, frameworks } from "@/utils/framework-utils";
+import { Poppins } from 'next/font/google';
 import { useEffect, useState } from "react";
 import { cn } from "@/utils/tailwind-utils";
 
+const poppins = Poppins({
+  weight: "700", 
+  subsets: ["latin"]
+})
+
 export default function Home() {
   const [currentFramework, setCurrentFramework] = useState<Framework>(frameworks[0])
+  const [showBackground, setShowBackground] = useState(false)
 
   useEffect(() => {
     let currentIndex = 0;
@@ -16,6 +23,10 @@ export default function Home() {
     }
     const intervalId = setInterval(rotateFrameworks, 2000)
     return () => clearInterval(intervalId)
+  }, [])
+
+  useEffect(() => {
+    setShowBackground(true)
   }, [])
 
   return (<main>
@@ -47,6 +58,11 @@ export default function Home() {
         backgroundImage: `url(${assets.square})`,
         backgroundSize: "30px",
       }}
+    />
+    <div 
+      className={cn("bg-black fixed inset-0 transition-opacity duration-[1500ms]",
+      !showBackground ? "opacity-100" : "opacity-0"
+      )}
     />
   </main>)
 }
