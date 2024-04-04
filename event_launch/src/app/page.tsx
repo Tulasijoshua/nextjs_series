@@ -90,6 +90,42 @@ export default function Home() {
           }
           )}> never</span> be the same again
         </h1>
+        <p className="mb-8">
+          <span className="text-gray-300">
+            Join us for an AI launch event by{" "}
+          </span>
+          <Image 
+            alt="Builder.io logo"
+            className="inline-block ml-1"
+            height={20}
+            width={100}
+            src={assets.builder}
+          />
+          {" + "}
+          <Image 
+            alt="Figma logo"
+            className="inline-block mx-1"
+            height={20}
+            width={55}
+            src={assets.figmatwo}
+          />
+        </p>
+        <div className="mb-8">
+          <button 
+            className={cn("text-black px-6 py-3 rounded-md text-sm font-semibold transition-colors duration-200", {
+              "bg-purple-300": currentFramework === "qwik",
+              "bg-sky-300": currentFramework === "safari",
+              "bg-yellow-300": currentFramework === "chrome",
+              "bg-teal-300": currentFramework === "tailwind",
+              "bg-blue-300": currentFramework === "react",
+              "bg-green-300": currentFramework === "vue",
+              "bg-orange-400": currentFramework === "svelte",
+              "bg-red-300": currentFramework === "mobile",
+              "bg-neutral-300": currentFramework === "desktop"
+            })}>
+            Claim Ticket
+          </button>
+        </div>
       </div>
     </div>
   </main>)
