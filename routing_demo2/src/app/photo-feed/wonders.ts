@@ -66,3 +66,5 @@ const wondersImages: WonderImage[] = [
         location: "China",
     },
 ]
+
+export default wondersImages;

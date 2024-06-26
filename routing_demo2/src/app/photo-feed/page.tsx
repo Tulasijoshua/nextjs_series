@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {wonders} from './wonders'
+import wonders from './wonders'
 import Link from "next/link";
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
                         <Image 
                             alt={name}
                             src={src}
-                            className="w-full object-cover aspect0-square" 
+                            className="w-full h-[300px] object-cover aspect0-square" 
                         />
                     </Link>
                 ))}
